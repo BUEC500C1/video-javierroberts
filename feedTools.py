@@ -4,6 +4,10 @@ from google.cloud import vision
 import io
 from PIL import Image
 import urllib.request
+import os
+
+os.system(
+    "export GOOGLE_APPLICATION_CREDENTIALS=~/Documents/gcloudstuff/apikey.json")
 
 
 def getFeed(handle, count):
@@ -14,7 +18,7 @@ def getFeed(handle, count):
 
     feed = []
 
-    public_tweets = api.user_timeline(id="handle", count=count)
+    public_tweets = api.user_timeline(id=handle, count=count)
 
     for tweet in public_tweets:
         entry = {}
@@ -60,3 +64,8 @@ def annotateImage(URL):
                 response.error.message))
 
     return summary
+
+
+if __name__ == "__main__":
+    annotateImage(
+        "https://pbs.twimg.com/profile_images/927446347879292930/Fi0D7FGJ_400x400.jpg")
