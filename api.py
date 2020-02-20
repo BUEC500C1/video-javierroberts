@@ -4,19 +4,14 @@ import feedTools
 
 
 app = Flask(__name__)
-api = Api(app)
 
 
-class feedRetrieve(Resource):
-
-    def get(self):
-        # parser = reqparse.RequestParser()
-        # parser.add_argument('handle', type=str, help='Twitter handle')
-        # handle = parser.parse_args()
-        return feedTools.getFeed()
+@app.route('/<string:handle>/<int:count>')
+def get(handle, count):
+    return feedTools.getFeed(handle, count)
 
 
-api.add_resource(feedRetrieve, '/')
+app.run()
 
 if __name__ == '__main__':
     app.run(debug=True)

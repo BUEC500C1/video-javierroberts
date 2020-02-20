@@ -6,7 +6,7 @@ from PIL import Image
 import urllib.request
 
 
-def getFeed():
+def getFeed(handle, count):
     auth = tweepy.OAuthHandler(keys.key, keys.skey)
     auth.set_access_token(keys.token, keys.stoken)
 
@@ -14,7 +14,8 @@ def getFeed():
 
     feed = []
 
-    public_tweets = api.home_timeline()
+    public_tweets = api.user_timeline(id="handle", count=count)
+
     for tweet in public_tweets:
         entry = {}
         entry.update({"text": tweet.text})
@@ -24,7 +25,6 @@ def getFeed():
                     {"image description": annotateImage(media["media_url"])})
 
         feed.append(entry)
-
     return feed
 
 
