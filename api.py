@@ -10,8 +10,11 @@ app = Flask(__name__)
 
 @app.route('/<string:handle>')
 def get(handle):
-    vd.makeVideo(handle)
-    return send_file("media/video.mp4")
+    try:
+        vd.makeVideo(handle)
+        return send_file("media/video.mp4")
+    except:
+        return "Error, please make sure handle is correct"
 
 
 if __name__ == '__main__':
