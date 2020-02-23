@@ -6,8 +6,7 @@ from PIL import Image
 import urllib.request
 import os
 
-os.system(
-    "export GOOGLE_APPLICATION_CREDENTIALS=~/Documents/gcloudstuff/apikey.json")
+os.system("export GOOGLE_APPLICATION_CREDENTIALS=~/Documents/gcloudstuff/apikey.json")
 
 
 def getFeed(handle, count):
@@ -20,9 +19,16 @@ def getFeed(handle, count):
 
     public_tweets = api.user_timeline(id=handle, count=count)
 
+    # Reversing to output in chronological order
+    public_tweets.reverse()
+
     for tweet in public_tweets:
         entry = {}
         entry.update({"text": tweet.text})
+        entry.update({'dateCreated': tweet.created_at})
+        entry.update(
+            # Can remove replace('_normal','') to use lower quality image
+            {'pic': tweet.user.profile_image_url.replace('_normal', '')})
         if 'media' in tweet.entities:
             for media in tweet.entities["media"]:
                 entry.update(
@@ -67,5 +73,4 @@ def annotateImage(URL):
 
 
 if __name__ == "__main__":
-    annotateImage(
-        "https://pbs.twimg.com/profile_images/927446347879292930/Fi0D7FGJ_400x400.jpg")
+    print(getFeed("realDonaldTrump", 50))
