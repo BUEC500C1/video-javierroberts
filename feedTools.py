@@ -10,6 +10,8 @@ os.system("export GOOGLE_APPLICATION_CREDENTIALS=~/Documents/gcloudstuff/apikey.
 
 
 def getFeed(handle, count):
+    print("handle2")
+    print(handle)
     auth = tweepy.OAuthHandler(keys.key, keys.skey)
     auth.set_access_token(keys.token, keys.stoken)
 
