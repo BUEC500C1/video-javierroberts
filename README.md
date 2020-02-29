@@ -17,7 +17,7 @@ How to start server:
 
 How to request a video for a certain twitter user:
 
-    Make a get request to "http://127.0.0.1:5000/getvideo/<HANDLE>" where HANDLE is the handle of the user you are looking for.
+    Make a get request to "http://127.0.0.1:5000/getvideo/<HANDLE>" where HANDLE is the handle of the user you are looking for. Make sure handle exists, API is not currently equipped to handle incorrect usernames.
 
 Answers to assigment questions:
 
