@@ -3,3 +3,6 @@ requests >= 2.21.0
 configparser
 Image
 pillow >= 4
+google-cloud 
+google-cloud-vision
+pillow
