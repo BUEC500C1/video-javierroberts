@@ -1,19 +1,24 @@
-import pytest
+import feedTools as ft
+import os
+import tweepy
+import json
+import testImage
+
+with open('nytimes.json') as json_file:
+    status_json = json.load(json_file)
 
 
-# TESTING CANNOT BE DONE ON GITHUB BECAUSE IT REQUIRES KEYS, SO IT HAS BEEN COMMENTED OUT
-
-# # Testing that getFeed() actually obtains a twitter users feed. CAnnot be nore specific than non-empty return value
-# # because the twitter feed of every user is different
-# def test_successfeed():
-#     assert len(feedTools.getFeed()) > 0
-
-
-# # Testing that the annotateImage() function is correctly annotating images with Googles Vision API.
-# def test_imageVision():
-#     assert feedTools.annotateImage(
-#         "https://pbs.twimg.com/media/EQTfQDoUwAIMsRY?format=jpg&name=4096x4096") == "Basketball player, Basketball, Basketball moves, Player, Sports, Team sport, Basketball court, Ball game, Tournament, Muscle"
+def test_getFeed(capsys):
+    if os.stat("keys").st_size == 0:
+        assert status_json['text'] == "The public health director of Santa Clara County, California, confirmed that the county's new coronavirus case does"
+    else:
+        data = ft.getFeed("BleacherReport", 1)
+        assert len(data[0]['text']) > 0
 
 
-def test_true():
-    assert True == True
+def test_annotateImage(capsys):
+    if os.stat("keys").st_size == 0:
+        assert testImage.description == "Blue, Cool, T-shirt, Outerwear, Facial hair, Beard, Rapper, Sleeve, Top"
+    else:
+        description = ft.annotateImage(testImage.url)
+        assert description == "Blue, Cool, T-shirt, Outerwear, Facial hair, Beard, Rapper, Sleeve, Top"

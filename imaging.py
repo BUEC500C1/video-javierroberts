@@ -10,10 +10,10 @@ def makeImages(handle, path, max_count):
     tweets = ft.getFeed(handle, max_count)
     failed = 0
     today = datetime.datetime.now()
-    today = today.strftime('%d/%m/%d')
+    today = today.strftime('%d/%m/%y')
     for i, tweet in enumerate(tweets):
         created = tweet['dateCreated']
-        created = created.strftime('%d/%m/%d')
+        created = created.strftime('%d/%m/%y')
         if (created == today):
             try:
                 if "image description" in tweet:
@@ -78,7 +78,3 @@ def createImage(tweet, image, img_url, handle, date, counter, path):
 
     img.save(path + '/image_%d.png' % counter)
     counter += 1
-
-
-if __name__ == "__main__":
-    makeImages("realDonaldTrump", 'media', 50)

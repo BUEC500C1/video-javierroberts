@@ -1,19 +1,23 @@
 import tweepy
-import keys
 from google.cloud import vision
 import io
 from PIL import Image
 import urllib.request
 import os
+import configparser
+import testImage
 
-os.system("export GOOGLE_APPLICATION_CREDENTIALS=~/Documents/gcloudstuff/apikey.json")
+path = "keys"
 
 
 def getFeed(handle, count):
-    print("handle2")
-    print(handle)
-    auth = tweepy.OAuthHandler(keys.key, keys.skey)
-    auth.set_access_token(keys.token, keys.stoken)
+
+    config = configparser.ConfigParser()
+    config.read(path)
+    auth = tweepy.OAuthHandler(config.get('auth', 'consumer_key').strip(),
+                               config.get('auth', 'consumer_secret').strip())
+    auth.set_access_token(config.get('auth', 'access_token').strip(),
+                          config.get('auth', 'access_secret').strip())
 
     api = tweepy.API(auth)
 
@@ -75,4 +79,4 @@ def annotateImage(URL):
 
 
 if __name__ == "__main__":
-    print(getFeed("realDonaldTrump", 50))
+    print(annotateImage(testImage.url))

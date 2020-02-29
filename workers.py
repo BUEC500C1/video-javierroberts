@@ -3,6 +3,8 @@ import threading
 import video as vd
 import imaging as im
 import time
+import subprocess
+import os
 
 NUMBER_THREADS = 4
 
@@ -13,6 +15,15 @@ done_list = [0, 0, 0, 0]
 
 
 def thread_init():
+
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "my-google-api-credentials.json"
+
+    for i in range(NUMBER_THREADS):
+        # Remove any existing images
+        path = "media/thread%s" % str(i)
+        subprocess.call("find . -type f -iname \*.png -delete",
+                        cwd=path, stdout=subprocess.DEVNULL, shell=True)
+
     for i in range(NUMBER_THREADS):
         thread = threading.Thread(name="Thread_%s" % str(
             i), target=imageProcessor)
@@ -34,6 +45,9 @@ def imageProcessor():
     q_images.task_done()
     q_video.put(t_id)
     time.sleep(0.001)
+    thread = threading.Thread(name="Thread_%s" % str(
+        t_id), target=imageProcessor)
+    thread.start()
 
 
 def videoProcessor():
@@ -45,6 +59,9 @@ def videoProcessor():
     q_video.task_done()
     done_list[t_id] = 1
     time.sleep(0.001)
+    thread = threading.Thread(name="Thread_%s" % str(
+        t_id), target=videoProcessor)
+    thread.start()
 
 
 def producer(handle, t_id):
