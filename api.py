@@ -19,9 +19,6 @@ def get(handle):
     t_id = calls % workers.NUMBER_THREADS
     workers.producer(handle, t_id)
 
-    print("HANDLE")
-    print(handle)
-
     if calls == 0:
         workers.thread_init()
     while True:
