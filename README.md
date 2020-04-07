@@ -23,7 +23,7 @@
 
     Terminal output should look like this:
 
-    <img src = "sample_images/server-running.png" alt = "server running" />
+    ![download](sample_images/server-running.png)
 
 # How to request a video for a certain twitter user:
 
