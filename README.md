@@ -36,6 +36,10 @@
     ![running2](sample_images/video-running2.png)
     ![running3](sample_images/video-running3.png)
 
+# Testing:
+
+    I used pytest for testing. Tests should pass even without gcloud and tweepy credentials as there are hardcoded stub functions included.
+
 # Answers to assigment questions:
 
     1. Given that the Macbook I am using has an I7 quadcore processor, I believe it should be able to process 4 simultaneous API calls.
