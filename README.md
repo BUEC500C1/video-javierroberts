@@ -9,11 +9,11 @@ This API allows users to retrieve a .mp4 video that contains a slideshow where e
 - You need to install the requirements, so run pip3 install -r requirements.txt.
 - You also need to populate the keys file with appropriate twitter keys in the following format:
 
-  [auth]
-  consumer_key =
-  consumer_secret =
-  access_token =
-  access_secret =
+        [auth]
+        consumer_key =
+        consumer_secret =
+        access_token =
+        access_secret =
 
 - Additioanlly, you need to get gcloud api credentials and save them as my-google-api-credentials.json in the root folder.
 
