@@ -23,7 +23,7 @@
 
     Terminal output should look like this:
 
-    ![download](sample_images/server-running.png)
+    ![server](sample_images/server-running.png)
 
 # How to request a video for a certain twitter user:
 
@@ -31,10 +31,10 @@
 
     For example, this is what is returned from a get request to http://127.0.0.1:5000/getvideo/espn:
 
-    <img src = "sample_images/video_loading.png" alt = "video loading" />
-    <img src = "sample_images/video-running.png" alt = "video running" />
-    <img src = "sample_images/video-running2.png" alt = "video running" />
-    <img src = "sample_images/video-running3.png" alt = "video running" />
+    ![loading](sample_images/loading_video.png)
+    ![running1](sample_images/video-running.png)
+    ![running2](sample_images/video-running2.png)
+    ![running3](sample_images/video-running3.png)
 
 # Answers to assigment questions:
 
