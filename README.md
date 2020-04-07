@@ -2,14 +2,20 @@
 
 # API Desicription:
 
-    This API allows users to retrieve a .mp4 video that contains a slideshow where every frame is a tweet that was posted
-    by a specific twitter user within the last day. The frame also contains an AI image description (if there was an image associated with the tweet) that is obtained using Google Vision. Other metadata, such as the users handle and profile picture, are also included in the frame.
+    This API allows users to retrieve a .mp4 video that contains a slideshow where every frame is a tweet that was posted by a specific twitter user within the last day. The frame also contains an AI image description (if there was an image associated with the tweet) that is obtained using Google Vision. Other metadata, such as the users handle and profile picture, are also included in the frame.
 
 # Setup:
 
-    You need to install the requirements, so run pip3 install -r requirements.txt.
-    You also need to populate the keys file with appropriate twitter keys.
-    Additioanlly, you need to get gcloud api credentials and save them as my-google-api-credentials.json in the root folder.
+    - You need to install the requirements, so run pip3 install -r requirements.txt.
+    - You also need to populate the keys file with appropriate twitter keys in the following format:
+
+                [auth]
+                consumer_key =
+                consumer_secret =
+                access_token =
+                access_secret =
+
+    - Additioanlly, you need to get gcloud api credentials and save them as my-google-api-credentials.json in the root folder.
 
 # How to start server:
 
