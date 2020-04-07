@@ -19,7 +19,7 @@ This API allows users to retrieve a .mp4 video that contains a slideshow where e
 
 # How to start server:
 
-Simply execute python3 flaskapp.py to start server
+Simply execute python3 api.py to start server
 
 Terminal output should look like this:
 
