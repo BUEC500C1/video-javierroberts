@@ -1,14 +1,16 @@
 from flask import Flask, request, jsonify, send_file
-from flask_restful import Resource, Api, reqparse
 import feedTools
 import json
 import video as vd
 import workers
 import queue
+import os
 
 calls = -1
 
 app = Flask(__name__)
+
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "my-google-api-credentials.json"
 
 
 @app.route('/getvideo/<string:handle>')
