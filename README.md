@@ -17,7 +17,7 @@
 
     Terminal output should look like this:
 
-    ![running server](sample_images/server-running?raw=true "Server Running")
+    ![running server](sample_images/server-running.png?raw=true "Server Running")
 
 #How to request a video for a certain twitter user:
 
@@ -25,10 +25,10 @@
 
     For example, this is what is returned from a get request to http://127.0.0.1:5000/getvideo/espn:
 
-    ![running server](sample_images/loading_video?raw=true "Video Running")
-    ![running server](sample_images/video-running?raw=true "Video Running")
-    ![running server](sample_images/video-runningw2?raw=true "Video Running")
-    ![running server](sample_images/video-running3?raw=true "Video Running")
+    ![running server](sample_images/loading_video.png?raw=true "Video Running")
+    ![running server](sample_images/video-running.png?raw=true "Video Running")
+    ![running server](sample_images/video-running2.png?raw=true "Video Running")
+    ![running server](sample_images/video-running3.png?raw=true "Video Running")
 
 #Answers to assigment questions:
 
